@@ -26,7 +26,7 @@ const NavBar = () => {
           </li>
           <li className="navbar-item">
             <a className="navbar-item" href="/">
-              Bijouteri
+              Bijouterie
             </a>
           </li>
         </ul>
