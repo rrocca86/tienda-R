@@ -18,11 +18,11 @@ const Item = ({ id, title, image, stock }) => {
             </div>
           </div>
         </div>
-        <div className="is-flex is-align-items-center is-justify-content-center">
+        <div className="is-flex is-align-items-center is-justify-content-center mb-2">
           <p>Stock: {stock}</p>
         </div>
         <div className="is-flex is-align-items-center is-justify-content-center">
-          <button className="button is-info">Ver detalle</button>
+          <button className="button is-info mb-3">Ver detalle</button>
         </div>
       </div>
     </div>

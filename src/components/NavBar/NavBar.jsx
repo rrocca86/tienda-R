@@ -15,17 +15,17 @@ const NavBar = () => {
       <div className="navbar-menu" id="nav-links">
         <ul className="navbar-end">
           <li className="navbar-item">
-            <a className="navbar-item" href="/">
+            <a className="navbar-item has-text-white" href="/">
               Hombre
             </a>
           </li>
           <li className="navbar-item">
-            <a className="navbar-item" href="/">
+            <a className="navbar-item has-text-white" href="/">
               Mujer
             </a>
           </li>
           <li className="navbar-item">
-            <a className="navbar-item" href="/">
+            <a className="navbar-item has-text-white" href="/">
               Bijouterie
             </a>
           </li>
