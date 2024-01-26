@@ -83,6 +83,7 @@ const Data = [
       rate: 4.6,
       count: 400,
     },
+    stock: 5,
   },
   {
     id: 6,
