@@ -31,7 +31,7 @@ const ItemList = () => {
       <div className="container">
         {items.length == 0 ? (
           <section {...containerProps}>
-            {indicatorEl} {/* renders only while loading */}
+            {indicatorEl}
             <h1>Cargando</h1>
           </section>
         ) : (
