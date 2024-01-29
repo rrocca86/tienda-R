@@ -27,14 +27,14 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       <div>
         <div className="counter">
           <button
-            className="button is-info mb-3"
+            className="button is-info is-small mb-3"
             onClick={() => handleOnClick("-")}
           >
             -
           </button>
           <h3 className="has-text-dark">{counter}</h3>
           <button
-            className="button is-info mb-3"
+            className="button is-info is-small mb-3"
             onClick={() => handleOnClick("+")}
           >
             +

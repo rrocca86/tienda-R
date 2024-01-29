@@ -4,8 +4,8 @@
   padding: 0.2rem;
   gap: 1.7rem;
   max-width: 9rem;
-  align-items: center;
   justify-content: center;
+  align-items: end;
 }
 
 h3 {
