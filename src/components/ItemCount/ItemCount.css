@@ -1,17 +1,13 @@
 .counter {
-    display: flex;
-    flex-direction: row;
-    padding: 0.2rem;
-    gap: 1.7rem;
-    max-width: 9rem;
-    align-items: center;
-    justify-content: center;
-}
-
-button {
-    background-color: bisque;
+  display: flex;
+  flex-direction: row;
+  padding: 0.2rem;
+  gap: 1.7rem;
+  max-width: 9rem;
+  align-items: center;
+  justify-content: center;
 }
 
 h3 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
