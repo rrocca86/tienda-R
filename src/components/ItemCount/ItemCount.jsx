@@ -8,7 +8,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   const handleOnClick = (e) => {
     switch (e) {
       case "-":
-        if (counter > 0) {
+        if (counter > 1) {
           setCounter(counter - 1);
         }
         break;
@@ -39,10 +39,8 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           >
             +
           </button>
-        </div>
-        <div className="counter">
           <button
-            className="button is-info mb-3"
+            className="button is-info is-small mb-3"
             onClick={() => handleOnClick("addToCart")}
             disabled={!stock}
           >
