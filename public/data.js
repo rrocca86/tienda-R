@@ -152,3 +152,11 @@ export const getItems = () => {
     }, 200);
   });
 };
+
+export const getItemById = (id) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(Data.find((p) => p.id === id));
+    }, 200);
+  });
+};
