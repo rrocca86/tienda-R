@@ -1,10 +1,12 @@
 import ItemList from "../ItemList/ItemList";
-import { getItems } from "../../../public/data";
+import { getItems, getItemsByCategory } from "../../../public/data";
 import { useLoading, Grid } from "@agney/react-loading";
 import { React, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ greeting }) => {
   const [items, setItems] = useState([]);
+  const { categoryName } = useParams();
 
   const { containerProps, indicatorEl } = useLoading({
     loading: true,
@@ -15,7 +17,9 @@ const ItemListContainer = ({ greeting }) => {
     const fetchData = async () => {
       try {
         console.log("Trying to get items");
-        const itemsData = await getItems();
+        const itemsData = categoryName
+          ? await getItemsByCategory(categoryName)
+          : await getItems();
         setItems(itemsData);
       } catch (error) {
         console.error("Error fetching items", error);
@@ -23,7 +27,7 @@ const ItemListContainer = ({ greeting }) => {
     };
 
     fetchData();
-  }, []);
+  }, [categoryName]);
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import React from "react";
-import ItemCount from "../ItemCount/ItemCount";
 import "./Item.css";
+import { Link } from "react-router-dom";
 
 const Item = ({ id, title, image, stock }) => {
   return (
@@ -22,7 +22,9 @@ const Item = ({ id, title, image, stock }) => {
           <p>Stock: {stock}</p>
         </div>
         <div className="is-flex is-align-items-center is-justify-content-center">
-          <button className="button is-info mb-3">Ver detalle</button>
+          <Link className="button is-info mb-3" to={`/item/${id}`}>
+            Ver detalle
+          </Link>
         </div>
       </div>
     </div>

@@ -156,7 +156,13 @@ export const getItems = () => {
 export const getItemById = (id) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(Data.find((p) => p.id === id));
+      resolve(Data.find((p) => p.id == id));
     }, 200);
+  });
+};
+
+export const getItemsByCategory = (categoryName) => {
+  return new Promise((resolve) => {
+    resolve(Data.filter((p) => p.category === categoryName));
   });
 };
