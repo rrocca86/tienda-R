@@ -147,17 +147,13 @@ export default Data;
 
 export const getItems = () => {
   return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(Data);
-    }, 200);
+    resolve(Data);
   });
 };
 
 export const getItemById = (id) => {
   return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(Data.find((p) => p.id == id));
-    }, 200);
+    resolve(Data.find((p) => p.id == id));
   });
 };
 
