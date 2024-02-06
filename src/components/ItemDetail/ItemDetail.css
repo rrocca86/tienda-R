@@ -3,6 +3,5 @@
 }
 
 .box {
-  border: 5px solid darkblue;
-  width: 50%;
+  border: 1px transparent;
 }

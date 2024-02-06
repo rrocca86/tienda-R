@@ -35,10 +35,12 @@ const ItemDetail = ({ image, title, description, price, stock }) => {
                     <div className="is-flex ">
                       <ItemCount stock={stock} initial={1} onAdd={null} />
                     </div>
+                    <div className="is-flex mt-5">
+                      <Link className="button is-info mt-5" to={"/"}>
+                        Volver
+                      </Link>
+                    </div>
                   </div>
-                  <Link className="button is-info mt-5" to={"/"}>
-                    Volver
-                  </Link>
                 </div>
               </div>
             </div>
