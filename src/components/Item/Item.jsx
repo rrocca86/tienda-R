@@ -7,9 +7,11 @@ const Item = ({ id, title, image, stock }) => {
     <div className="column is-one-third myItem">
       <div className="card card-equal-height mb-4">
         <div className="card-image">
-          <figure className="image is-square">
-            <img src={image} alt={title} />
-          </figure>
+          <Link to={`/item/${id}`}>
+            <figure className="image is-square">
+              <img src={image} alt={title} />
+            </figure>
+          </Link>
         </div>
         <div className="card-content">
           <div className="media">

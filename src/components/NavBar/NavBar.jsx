@@ -18,26 +18,17 @@ const NavBar = () => {
       <div className="navbar-menu" id="nav-links">
         <ul className="navbar-end">
           <li className="navbar-item">
-            <NavLink
-              className="navbar-item has-text-white"
-              to={"/category/men's clothing"}
-            >
+            <NavLink className="navbar-item has-text-white" to={"/category/1"}>
               Hombre
             </NavLink>
           </li>
           <li className="navbar-item">
-            <NavLink
-              className="navbar-item has-text-white"
-              to={"/category/women's clothing"}
-            >
+            <NavLink className="navbar-item has-text-white" to={"/category/2"}>
               Mujer
             </NavLink>
           </li>
           <li className="navbar-item">
-            <NavLink
-              className="navbar-item has-text-white"
-              to={"/category/jewelery"}
-            >
+            <NavLink className="navbar-item has-text-white" to={"/category/3"}>
               Bijouterie
             </NavLink>
           </li>

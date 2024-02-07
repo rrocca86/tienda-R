@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ greeting }) => {
   const [items, setItems] = useState([]);
-  const { categoryName } = useParams();
+  const { categoryId } = useParams();
 
   const { containerProps, indicatorEl } = useLoading({
     loading: true,
@@ -16,9 +16,8 @@ const ItemListContainer = ({ greeting }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("Trying to get items");
-        const itemsData = categoryName
-          ? await getItemsByCategory(categoryName)
+        const itemsData = categoryId
+          ? await getItemsByCategory(categoryId)
           : await getItems();
         setItems(itemsData);
       } catch (error) {
@@ -27,7 +26,7 @@ const ItemListContainer = ({ greeting }) => {
     };
 
     fetchData();
-  }, [categoryName]);
+  }, [categoryId]);
 
   return (
     <div>

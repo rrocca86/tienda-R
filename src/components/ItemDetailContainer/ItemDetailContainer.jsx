@@ -10,7 +10,6 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("Trying to get the item");
         const itemData = await getItemById(itemId);
         if (itemData) {
           setItem(itemData);
