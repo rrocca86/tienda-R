@@ -1,0 +1,12 @@
+.counter {
+  display: flex;
+  flex-direction: row;
+  padding: 0.2rem;
+  gap: 1rem;
+  max-width: 9rem;
+  align-items: end;
+}
+
+h3 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
