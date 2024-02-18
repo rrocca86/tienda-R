@@ -1,14 +1,22 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
-const ItemDetail = ({ image, title, description, price, stock }) => {
+const ItemDetail = ({ id, image, title, description, price, stock }) => {
   const [quantity, setQuantity] = useState(0);
+  const { addItem } = useContext(CartContext);
 
-  const handleOnAdd = (n) => {
-    console.log("Productos agregados: " + n);
-    setQuantity(n);
+  const handleOnAdd = (newQuantity) => {
+    setQuantity(newQuantity);
+    const item = {
+      id,
+      title,
+      price,
+      image,
+    };
+    addItem(item, newQuantity);
   };
 
   return (
@@ -42,7 +50,7 @@ const ItemDetail = ({ image, title, description, price, stock }) => {
                     <div className="is-flex ">
                       {quantity > 0 ? (
                         <Link to="/cart" className="button is-info">
-                          Finalizar compra
+                          Ir al carrito
                         </Link>
                       ) : (
                         <ItemCount

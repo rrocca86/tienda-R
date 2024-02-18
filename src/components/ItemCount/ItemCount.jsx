@@ -17,7 +17,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           setCounter(counter + 1);
         }
         break;
-      default:
+      case "addToCart":
         onAdd(counter);
     }
   };
