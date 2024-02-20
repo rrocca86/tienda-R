@@ -8,12 +8,18 @@ const CartWidget = () => {
   const { totalQuantity } = useContext(CartContext);
 
   return (
-    <div className="navbar-item">
-      <Link to="/cart">
-        <img src={cart} alt="" height="30" width="30" />{" "}
-      </Link>
-      <p>{totalQuantity == null ? 0 : totalQuantity}</p>
-    </div>
+    <>
+      {totalQuantity === 0 ? (
+        <div></div>
+      ) : (
+        <div className="navbar-item">
+          <Link to="/cart">
+            <img src={cart} alt="" height="30" width="30" />{" "}
+          </Link>
+          <p>{totalQuantity}</p>
+        </div>
+      )}
+    </>
   );
 };
 
