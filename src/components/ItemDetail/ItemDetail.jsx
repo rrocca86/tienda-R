@@ -49,7 +49,10 @@ const ItemDetail = ({ id, image, title, description, price, stock }) => {
                     </div>
                     <div className="is-flex ">
                       {quantity > 0 ? (
-                        <Link to="/cart" className="button is-info">
+                        <Link
+                          to="/cart"
+                          className="button is-info is-small mt-5"
+                        >
                           Ir al carrito
                         </Link>
                       ) : (
@@ -60,8 +63,8 @@ const ItemDetail = ({ id, image, title, description, price, stock }) => {
                         />
                       )}
                     </div>
-                    <div className="is-flex mt-5">
-                      <Link className="button is-info mt-5" to={"/"}>
+                    <div className="is-flex">
+                      <Link className="button is-info is-small mt-5" to={"/"}>
                         Volver
                       </Link>
                     </div>
