@@ -34,7 +34,6 @@ const ItemListContainer = ({ greeting }) => {
             where("categoryId", "==", categoryId)
           );
           snapshot = await getDocs(categoryItemsQuery);
-          console.log(snapshot.docs);
         }
 
         if (snapshot.size > 0) {

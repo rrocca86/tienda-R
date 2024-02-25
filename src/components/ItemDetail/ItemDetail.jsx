@@ -3,12 +3,29 @@ import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import Bulma from "@vizuaalog/bulmajs";
 
 const ItemDetail = ({ id, image, title, description, price, stock }) => {
   const [quantity, setQuantity] = useState(0);
-  const { addItem } = useContext(CartContext);
+  const { addItem, getItemAddedQuantity } = useContext(CartContext);
 
   const handleOnAdd = (newQuantity) => {
+    const addedQuantity = getItemAddedQuantity(id);
+
+    if (addedQuantity + newQuantity > stock) {
+      Bulma().alert({
+        type: "danger",
+        title: "Oh oh!",
+        body: "La cantidad agregada supera el stock del producto.",
+        confirm: {
+          label: "Ok",
+          classes: ["is-primary", "is-rounded", "is-small"],
+        },
+      });
+
+      return;
+    }
+
     setQuantity(newQuantity);
     const item = {
       id,

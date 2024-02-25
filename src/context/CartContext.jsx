@@ -52,13 +52,28 @@ export const CartProvider = ({ children }) => {
     setTotalQuantity(totalItems);
   };
 
+  const getItemAddedQuantity = (id) => {
+    if (itemAlreadyExists(id)) {
+      return cart.find((p) => p.id === id).quantity;
+    }
+    return 0;
+  };
+
   const itemAlreadyExists = (id) => {
     return cart.some((p) => p.id === id);
   };
 
   return (
     <CartContext.Provider
-      value={{ cart, totalQuantity, total, addItem, deleteItem, clearCart }}
+      value={{
+        cart,
+        totalQuantity,
+        total,
+        addItem,
+        deleteItem,
+        clearCart,
+        getItemAddedQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>
