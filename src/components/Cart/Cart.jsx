@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import CartItem from "../CartItem/CartItem";
+import EmptyCart from "../../assets/empty_cart.png";
 
 const Cart = () => {
   const { cart, clearCart, total } = useContext(CartContext);
@@ -11,6 +12,13 @@ const Cart = () => {
       {cart.length == 0 ? (
         <div className="mb-3 mt-3">
           <h1 className="mb-3">Tu carrito está vacío.</h1>
+
+          <div className="columns">
+            <div className="column is-full">
+              <img src={EmptyCart} alt="Empty cart" />
+            </div>
+          </div>
+
           <Link className="button is-info mb-5 mt-5" to={"/"}>
             Volver
           </Link>
