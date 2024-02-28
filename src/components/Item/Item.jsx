@@ -21,7 +21,7 @@ const Item = ({ id, title, image, stock }) => {
           </div>
         </div>
         <div className="is-flex is-align-items-center is-justify-content-center mb-2">
-          <p>Stock: {stock}</p>
+          {stock > 0 ? <p>Stock: {stock}</p> : <p>Producto agotado</p>}
         </div>
         <div className="is-flex is-align-items-center is-justify-content-center">
           <Link className="button is-info is-small mb-3" to={`/item/${id}`}>

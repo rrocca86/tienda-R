@@ -72,12 +72,16 @@ const ItemDetail = ({ id, image, title, description, price, stock }) => {
                         >
                           Ir al carrito
                         </Link>
-                      ) : (
+                      ) : stock > 0 ? (
                         <ItemCount
                           stock={stock}
                           initial={1}
                           onAdd={handleOnAdd}
                         />
+                      ) : (
+                        <p>
+                          <strong>Producto agotado</strong>
+                        </p>
                       )}
                     </div>
                     <div className="is-flex">

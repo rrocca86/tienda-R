@@ -9,8 +9,8 @@ const Cart = () => {
   return (
     <>
       {cart.length == 0 ? (
-        <div>
-          <h1>Tu carrito está vacío.</h1>
+        <div className="mb-3 mt-3">
+          <h1 className="mb-3">Tu carrito está vacío.</h1>
           <Link className="button is-info mb-5 mt-5" to={"/"}>
             Volver
           </Link>
