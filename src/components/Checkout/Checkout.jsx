@@ -112,7 +112,7 @@ const Checkout = () => {
                         type="text"
                         placeholder="Nombre"
                         maxLength={20}
-                        pattern={"[A-Za-z]{1,20}"}
+                        pattern={"[A-Za-z ]{1,20}"}
                         title={"Debes ingresar sólo letras."}
                         onChange={(e) => setName(e.target.value)}
                       />
@@ -127,7 +127,7 @@ const Checkout = () => {
                         type="text"
                         placeholder="Apellido"
                         maxLength={20}
-                        pattern={"[A-Za-z]{1,20}"}
+                        pattern={"[A-Za-z ]{1,20}"}
                         title={"Debes ingresar sólo letras."}
                         onChange={(e) => setLastName(e.target.value)}
                       />
@@ -141,7 +141,8 @@ const Checkout = () => {
                         className="input"
                         type="number"
                         placeholder="Teléfono"
-                        maxLength={12}
+                        min={1}
+                        max={999999999999}
                         onChange={(e) => setPhone(e.target.value)}
                       />
                     </div>
