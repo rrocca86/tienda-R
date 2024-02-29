@@ -1,9 +1,41 @@
-import React from "react";
+import { React, useState, useContext } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
+import Bulma from "@vizuaalog/bulmajs";
 
-const ItemDetail = ({ image, title, description, price, stock }) => {
+const ItemDetail = ({ id, image, title, description, price, stock }) => {
+  const [quantity, setQuantity] = useState(0);
+  const { addItem, getItemAddedQuantity } = useContext(CartContext);
+
+  const handleOnAdd = (newQuantity) => {
+    const addedQuantity = getItemAddedQuantity(id);
+
+    if (addedQuantity + newQuantity > stock) {
+      Bulma().alert({
+        type: "danger",
+        title: "Oh oh!",
+        body: "La cantidad agregada supera el stock del producto.",
+        confirm: {
+          label: "Ok",
+          classes: ["is-primary", "is-rounded", "is-small"],
+        },
+      });
+
+      return;
+    }
+
+    setQuantity(newQuantity);
+    const item = {
+      id,
+      title,
+      price,
+      image,
+    };
+    addItem(item, newQuantity);
+  };
+
   return (
     <>
       {title == null ? (
@@ -33,10 +65,27 @@ const ItemDetail = ({ image, title, description, price, stock }) => {
                       <p>Stock: {stock}</p>
                     </div>
                     <div className="is-flex ">
-                      <ItemCount stock={stock} initial={1} onAdd={null} />
+                      {quantity > 0 ? (
+                        <Link
+                          to="/cart"
+                          className="button is-info is-small mt-5"
+                        >
+                          Ir al carrito
+                        </Link>
+                      ) : stock > 0 ? (
+                        <ItemCount
+                          stock={stock}
+                          initial={1}
+                          onAdd={handleOnAdd}
+                        />
+                      ) : (
+                        <p>
+                          <strong>Producto agotado</strong>
+                        </p>
+                      )}
                     </div>
-                    <div className="is-flex mt-5">
-                      <Link className="button is-info mt-5" to={"/"}>
+                    <div className="is-flex">
+                      <Link className="button is-info is-small mt-5" to={"/"}>
                         Volver
                       </Link>
                     </div>

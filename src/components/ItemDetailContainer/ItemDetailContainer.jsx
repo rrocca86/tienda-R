@@ -1,7 +1,8 @@
 import { React, useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { getItemById } from "../../../public/data";
 import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
@@ -10,10 +11,12 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const itemData = await getItemById(itemId);
-        if (itemData) {
-          setItem(itemData);
-        }
+        const docReference = doc(db, "products", itemId);
+        getDoc(docReference).then((snapshot) => {
+          if (snapshot.exists) {
+            setItem({ id: snapshot.id, ...snapshot.data() });
+          }
+        });
       } catch (error) {
         console.error("Error fetching item", error);
       }
