@@ -4,12 +4,12 @@ import {
   addDoc,
   updateDoc,
   collection,
-  getFirestore,
   Timestamp,
   getDoc,
   doc,
 } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import { db } from "../../firebase/config";
 
 const Checkout = () => {
   const { cart, total, clearCart } = useContext(CartContext);
@@ -24,7 +24,6 @@ const Checkout = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    const db = getFirestore();
     //Validacion campos obligatorios
     if (!name || !lastName || !email || !confirmationEmail || !phone) {
       setError("Se deben completar todos los campos.");
@@ -112,6 +111,9 @@ const Checkout = () => {
                         className="input"
                         type="text"
                         placeholder="Nombre"
+                        maxLength={20}
+                        pattern={"[A-Za-z]{1,20}"}
+                        title={"Debes ingresar sólo letras."}
                         onChange={(e) => setName(e.target.value)}
                       />
                     </div>
@@ -124,6 +126,9 @@ const Checkout = () => {
                         className="input"
                         type="text"
                         placeholder="Apellido"
+                        maxLength={20}
+                        pattern={"[A-Za-z]{1,20}"}
+                        title={"Debes ingresar sólo letras."}
                         onChange={(e) => setLastName(e.target.value)}
                       />
                     </div>
@@ -136,6 +141,7 @@ const Checkout = () => {
                         className="input"
                         type="number"
                         placeholder="Teléfono"
+                        maxLength={12}
                         onChange={(e) => setPhone(e.target.value)}
                       />
                     </div>
@@ -148,6 +154,7 @@ const Checkout = () => {
                         className="input"
                         type="email"
                         placeholder="Email"
+                        maxLength={100}
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
@@ -160,6 +167,7 @@ const Checkout = () => {
                         className="input"
                         type="email"
                         placeholder="Confirmar email"
+                        maxLength={100}
                         onChange={(e) => setConfirmationEmail(e.target.value)}
                       />
                     </div>
