@@ -19,7 +19,7 @@ const ItemDetail = ({ id, image, title, description, price, stock }) => {
         body: "La cantidad agregada supera el stock del producto.",
         confirm: {
           label: "Ok",
-          classes: ["is-primary", "is-rounded", "is-small"],
+          classes: ["is-primary", "is-small"],
         },
       });
 

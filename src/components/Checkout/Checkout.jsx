@@ -10,6 +10,7 @@ import {
 } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { db } from "../../firebase/config";
+import Bulma from "@vizuaalog/bulmajs";
 
 const Checkout = () => {
   const { cart, total, clearCart } = useContext(CartContext);
@@ -72,6 +73,18 @@ const Checkout = () => {
               setError("");
               setOrderId(orderRef.id);
               clearCart();
+
+              Bulma().alert({
+                type: "info",
+                title: "Orden generada",
+                body:
+                  `Se ha generado la orden #<strong>${orderRef.id}</strong>` +
+                  "<br>Muchas gracias por su compra.",
+                confirm: {
+                  label: "Ok",
+                  classes: ["is-primary", "is-small"],
+                },
+              });
             })
             .catch((e) => {
               console.log("Error al generar la orden.");
@@ -176,19 +189,14 @@ const Checkout = () => {
 
                   {/*Error*/}
                   {error && (
-                    <div className="column">
-                      <p className="help is-danger">{error}</p>
-                    </div>
-                  )}
-
-                  {/*Orden generada*/}
-                  {orderId && (
-                    <div className="column">
-                      <p className="subtitle has-text-success">
-                        ¡Gracias por su compra! Se ha generado la orden #
-                        {orderId}.
-                      </p>
-                    </div>
+                    <article className="message is-danger">
+                      <div className="message-header">
+                        <p>Error</p>
+                      </div>
+                      <div className="message-body">
+                        <strong>{error}</strong>
+                      </div>
+                    </article>
                   )}
                 </div>
               </div>
